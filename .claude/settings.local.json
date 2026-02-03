@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:web.archive.org)",
+      "Bash(npx create-next-app:*)",
+      "Bash(curl:*)",
+      "Bash(npm run build:*)",
+      "Bash(nvm use:*)",
+      "Bash(source ~/.nvm/nvm.sh)"
+    ]
+  }
+}
