@@ -6,7 +6,10 @@
       "Bash(curl:*)",
       "Bash(npm run build:*)",
       "Bash(nvm use:*)",
-      "Bash(source ~/.nvm/nvm.sh)"
+      "Bash(source ~/.nvm/nvm.sh)",
+      "Bash(lsof:*)",
+      "Bash(xargs:*)",
+      "Bash(npm run dev:*)"
     ]
   }
 }

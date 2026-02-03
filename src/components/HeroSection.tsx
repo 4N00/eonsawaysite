@@ -1,162 +1,77 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <div className="top-hero">
       {/* Video Background */}
-      <div className="absolute inset-0 z-0">
-        {/* Fallback Image (shows first, then video covers it) */}
-        <Image
-          src="/assets/img/bg1.png"
-          alt="Eons Away Background"
-          fill
-          className="object-cover object-top"
-          priority
-        />
-        {/* Vimeo Video Background */}
-        <div className="absolute inset-0 z-[1]">
-          <div className="relative h-full w-full">
-            <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                <iframe
-                  src="https://player.vimeo.com/video/814183658?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
-                  className="pointer-events-none absolute inset-0 h-full w-full"
-                  style={{
-                    width: '100vw',
-                    height: '56.25vw',
-                    minHeight: '100vh',
-                    minWidth: '177.78vh',
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)'
-                  }}
-                  frameBorder="0"
-                  allow="autoplay; fullscreen"
-                  allowFullScreen
-                />
-              </div>
-            </div>
+      <div className="video-background">
+        <div className="video-foreground">
+          <div className="video-ratio-wrapper">
+            <iframe
+              id="topHeroVideo"
+              title="background"
+              src="https://player.vimeo.com/video/814183658?background=1&quality=1080p"
+              width="640"
+              height="360"
+              frameBorder="0"
+              allow="autoplay"
+              className="fade-in-slower"
+            />
+            <Image
+              className="bgHero fade-in"
+              src="/assets/img/bg1.png"
+              alt="background"
+              fill
+              priority
+            />
           </div>
         </div>
-        {/* Overlay */}
-        <div className="absolute inset-0 z-[2] bg-black/20" />
+        <div className="overlay" />
       </div>
 
-      {/* Header with Social Links */}
-      <motion.header
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="absolute top-0 left-0 right-0 z-20 flex justify-center p-8"
-      >
-        <div className="flex">
-          <Link
-            href="https://twitter.com/eonsawaygame/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex h-[54px] w-[54px] items-center justify-center transition-transform hover:scale-110"
-          >
-            <Image
-              src="/assets/img/twitter.png"
-              alt="Follow us on Twitter"
-              width={30}
-              height={30}
-            />
+      {/* Header */}
+      <header className="header fade-in">
+        <div className="social-media">
+          <Link href="https://twitter.com/eonsawaygame/" target="_blank" rel="noopener noreferrer">
+            <Image src="/assets/img/twitter.png" alt="Follow us on Twitter" width={30} height={30} />
           </Link>
-          <Link
-            href="https://www.instagram.com/eonsawaygame/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex h-[54px] w-[54px] items-center justify-center transition-transform hover:scale-110"
-          >
-            <Image
-              src="/assets/img/instagram.png"
-              alt="Connect with us on Instagram"
-              width={30}
-              height={30}
-            />
+          <Link href="https://www.instagram.com/eonsawaygame/" target="_blank" rel="noopener noreferrer">
+            <Image src="/assets/img/instagram.png" alt="Connect with us on Instagram" width={30} height={30} />
           </Link>
-          <Link
-            href="https://discord.gg/4Z8QZ9Z"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex h-[50px] w-[50px] items-center justify-center transition-transform hover:scale-110"
-          >
-            <Image
-              src="/assets/img/discord.png"
-              alt="Join us on Discord"
-              width={30}
-              height={30}
-            />
+          <Link href="https://discord.gg/4Z8QZ9Z" target="_blank" rel="noopener noreferrer">
+            <Image src="/assets/img/discord.png" alt="Join us on Discord" width={30} height={30} />
           </Link>
         </div>
-      </motion.header>
+      </header>
 
-      {/* Main Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-4">
-        {/* Logo Image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className=""
-        >
-          <Image
-            src="/assets/img/EonsAwayLogo.png"
-            alt="Eons Away Logo"
-            width={384}
-            height={306}
-            className="h-auto w-[280px] md:w-[340px] lg:w-[384px]"
-            priority
-          />
-        </motion.div>
-
-        {/* Wishlist Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16"
-        >
+      {/* Hero Content */}
+      <div className="top-hero-content fade-in-slow">
+        <div className="logo">
+          <img src="/assets/img/EonsAwayLogo.png" alt="logo" width={500} />
+        </div>
+        <div className="button-wrapper fade-in-delay">
           <Link
             href="https://store.steampowered.com/app/2164820/Eons_Away/"
             target="_blank"
-            rel="noopener noreferrer"
-            className="btn-animated inline-block border border-white px-4 py-[13.6px] text-[18px] tracking-[3.96px] text-white transition-all hover:bg-white/10"
+            className="btn btn-sm animated-button thar-two"
           >
             Wishlist
           </Link>
-        </motion.div>
+        </div>
       </div>
 
-      {/* Scroll Down Arrow */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1 }}
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
-      >
-        <Link
-          href="#about"
-          className="animate-bounce-slow block text-white"
-        >
-          <svg
-            width="30"
-            height="30"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <polyline points="6 9 12 15 18 9" />
+      {/* Down Arrow */}
+      <div className="top-hero__button-wrapper">
+        <Link href="#section" className="top-hero__button" id="down-arrow" aria-label="Go down">
+          <svg width="17" height="10" viewBox="0 0 17 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0.353553" y1="0.646447" x2="8.85354" y2="9.14644" stroke="white" />
+            <line x1="8.14646" y1="9.14645" x2="16.6464" y2="0.646456" stroke="white" />
           </svg>
         </Link>
-      </motion.div>
-    </section>
+      </div>
+    </div>
   );
 }

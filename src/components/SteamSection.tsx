@@ -1,86 +1,41 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function SteamSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section
-      ref={ref}
-      className="relative flex min-h-[80vh] flex-col items-center justify-center overflow-hidden"
-    >
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/assets/img/eonsAwayBg.png"
-          alt="Eons Away Background"
-          fill
-          className="object-cover"
-        />
-      </div>
-
-      {/* Decorative edge image - left side */}
-      <div className="pointer-events-none absolute left-0 top-0 z-10 hidden h-full opacity-50 lg:block">
-        <Image
-          src="/assets/img/edge.png"
-          alt=""
-          width={150}
-          height={600}
-          className="h-full w-auto object-cover"
-        />
-      </div>
-
-      {/* Decorative edge image - right side */}
-      <div className="pointer-events-none absolute right-0 top-0 z-10 hidden h-full opacity-50 lg:block">
-        <Image
-          src="/assets/img/edge.png"
-          alt=""
-          width={150}
-          height={600}
-          className="h-full w-auto rotate-180 object-cover"
-        />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center px-4 py-24">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8 }}
-        >
-          <Link
-            href="https://store.steampowered.com/app/2164820/Eons_Away/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col items-center gap-4 transition-transform hover:scale-105"
-          >
-            <h2 className="font-['Josefin_Sans'] text-[32px] font-light tracking-[7.04px] text-white">
-              WISHLIST NOW
-            </h2>
-
-            {/* Steam Logo */}
-            <div className="flex items-center gap-3">
-              <svg
-                viewBox="0 0 256 259"
-                className="h-12 w-12 md:h-16 md:w-16"
-                fill="white"
-              >
-                <path d="M127.779 0C60.227 0 5.252 52.126.584 118.707l68.545 28.336c5.849-4.017 12.906-6.376 20.521-6.376.685 0 1.362.02 2.031.058l30.69-44.461v-.624c0-26.937 21.915-48.852 48.86-48.852 26.938 0 48.86 21.915 48.86 48.86 0 26.937-21.922 48.852-48.86 48.852h-1.133l-43.71 31.203c0 .563.031 1.133.031 1.703 0 20.24-16.442 36.674-36.682 36.674-17.892 0-32.828-12.832-35.998-29.79L4.18 158.685C18.783 214.443 68.922 255.28 128.221 259c70.663 0 127.779-57.108 127.779-127.779C256 58.482 198.442 0 127.779 0" />
-                <path d="M81.281 225.107l-15.533-6.42c2.756 5.704 7.298 10.596 13.158 13.436 12.674 6.132 27.883.736 34.015-11.946 2.973-6.143 3.146-12.979.482-19.238-2.657-6.26-7.612-11.051-13.955-14.024-6.256-2.929-12.859-2.849-18.755-.454l16.06 6.64c9.34 3.865 13.772 14.472 9.908 23.812-3.864 9.333-14.472 13.765-23.812 9.907l-.007.007-.007.007-.554-.224.007-.007-.007.007zM220.116 145.489c0-17.953-14.607-32.56-32.567-32.56-17.96 0-32.567 14.607-32.567 32.56 0 17.96 14.607 32.568 32.567 32.568 17.96 0 32.567-14.607 32.567-32.568zm-57.107.048c0-13.558 10.999-24.557 24.556-24.557 13.558 0 24.557 10.999 24.557 24.557 0 13.558-11 24.556-24.557 24.556-13.557 0-24.556-10.998-24.556-24.556z" />
+    <>
+      <section className="section" id="steam-section">
+        <div className="imageWide">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/assets/img/eonsAwayBg.png" alt="Eons Away Background" />
+          <div className="imageWide__content">
+            <Link href="https://store.steampowered.com/app/2164820/Eons_Away/" target="_blank">
+              <h2>WISHLIST NOW</h2>
+              <svg className="wishlist" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="293.5px" height="88.5px" viewBox="0 0 293.5 88.5">
+                <title>Wishlist on Steam</title>
+                <path
+                  className="logo-fill"
+                  fill="currentColor"
+                  d="M44.1 0C20.8 0 1.8 17.9 0 40.7l23.7 9.8c2-1.4 4.4-2.2 7-2.2h.7L42 33.1v-.2c0-9.2 7.5-16.7 16.7-16.7s16.7 7.5 16.7 16.7-7.5 16.7-16.7 16.7h-.4l-15 10.7v.6a12.5 12.5 0 01-24.8 2.4l-17-7a44.27 44.27 0 0042.6 32.2c24.4 0 44.2-19.8 44.2-44.2C88.3 19.8 68.5 0 44.1 0z"
+                />
+                <path
+                  className="logo-fill"
+                  fill="currentColor"
+                  d="M27.7 67.1l-5.4-2.2c1 2 2.6 3.7 4.8 4.6 4.8 2 10.3-.3 12.3-5.1 1-2.3 1-4.9 0-7.2s-2.8-4.1-5.1-5.1-4.8-.9-6.9-.1l5.6 2.3c3.5 1.5 5.2 5.5 3.7 9a6.8 6.8 0 01-9 3.8zM69.8 32.8c0-6.1-5-11.1-11.1-11.1a11.14 11.14 0 000 22.3c6.1 0 11.1-5 11.1-11.2zm-19.5 0c0-4.6 3.7-8.4 8.4-8.4 4.6 0 8.4 3.7 8.4 8.4 0 4.6-3.7 8.3-8.4 8.3a8.3 8.3 0 01-8.4-8.3z"
+                />
+                <path
+                  className="logo-fill"
+                  fill="currentColor"
+                  d="M135.6 30.3l-3 5.2c-2.3-1.6-5.4-2.6-8.1-2.6-3.1 0-5 1.3-5 3.6 0 2.8 3.4 3.4 8.4 5.2 5.4 1.9 8.5 4.2 8.5 9.1 0 6.8-5.3 10.6-13 10.6-3.7 0-8.3-1-11.7-3.1l2.2-5.8c2.8 1.5 6.2 2.4 9.2 2.4 4.1 0 6-1.5 6-3.7 0-2.5-2.9-3.3-7.7-4.9-5.4-1.8-9.1-4.2-9.1-9.7 0-6.2 5-9.8 12.1-9.8 4.9.2 8.9 1.8 11.2 3.5zM158.7 33.6v27.3h-7V33.6h-10.1v-6h27.2v6h-10.1zM183.5 33.5V41h13.4v6h-13.4v7.8H199v6h-22.5V27.6H199v6h-15.5zM214.6 54.4l-2.2 6.5h-7.3l12.5-33.3h7l12.8 33.3h-7.6l-2.3-6.5h-12.9zm6.5-18.9l-4.5 13.3h9.2l-4.7-13.3zM273.3 40.5L264.2 60h-3.9l-9-19.3V61h-6.7V27.6h6.7l11.2 24.1 10.8-24.1h6.7v33.3h-6.7V40.5zM293.5 31.8c0 2.9-2.1 4.6-4.6 4.6-2.5 0-4.6-1.8-4.6-4.6 0-2.9 2.2-4.6 4.6-4.6a4.4 4.4 0 014.6 4.6zm-8.5 0c0 2.4 1.7 3.9 3.8 3.9 2.1 0 3.8-1.5 3.8-3.9s-1.7-3.9-3.8-3.9a3.7 3.7 0 00-3.8 3.9zm3.9-2.4c1.2 0 1.6.6 1.6 1.3 0 .6-.4 1-.8 1.3l1.1 2h-.9l-.9-1.8h-1V34h-.7v-4.6h1.6zm-.8 2.1h.8c.5 0 .8-.3.8-.7 0-.4-.2-.7-.8-.7h-.8v1.4z"
+                />
               </svg>
-              <span className="font-['Open_Sans'] text-[32px] font-normal text-white">
-                STEAM<sup className="text-sm">®</sup>
-              </span>
-            </div>
-          </Link>
-        </motion.div>
-      </div>
-    </section>
+            </Link>
+          </div>
+        </div>
+      </section>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className="edgeImage" src="/assets/img/edge.png" alt="" width={600} />
+    </>
   );
 }
