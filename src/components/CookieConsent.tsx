@@ -38,6 +38,11 @@ export default function CookieConsentBanner() {
     }
   }, []);
 
+  const dispatchConsentEvent = () => {
+    // Dispatch custom event so analytics components can react
+    window.dispatchEvent(new Event("cookieConsentUpdate"));
+  };
+
   const handleAccept = () => {
     const allEnabled: CookiePreferences = {
       essential: true,
@@ -49,12 +54,14 @@ export default function CookieConsentBanner() {
     setPreferences(allEnabled);
     setIsVisible(false);
     setShowSettings(false);
+    dispatchConsentEvent();
   };
 
   const handleSavePreferences = () => {
     localStorage.setItem("cookieConsent", JSON.stringify(preferences));
     setIsVisible(false);
     setShowSettings(false);
+    dispatchConsentEvent();
   };
 
   const handleDecline = () => {
@@ -62,6 +69,7 @@ export default function CookieConsentBanner() {
     setPreferences(defaultPreferences);
     setIsVisible(false);
     setShowSettings(false);
+    dispatchConsentEvent();
   };
 
   const togglePreference = (key: keyof CookiePreferences) => {
