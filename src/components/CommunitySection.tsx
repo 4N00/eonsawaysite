@@ -13,7 +13,6 @@ const socialLinks = [
       </svg>
     ),
     description: "Join the community",
-    members: "1,000+",
   },
   {
     name: "Twitter/X",
@@ -24,7 +23,6 @@ const socialLinks = [
       </svg>
     ),
     description: "Latest updates",
-    members: "5,000+",
   },
   {
     name: "YouTube",
@@ -35,7 +33,6 @@ const socialLinks = [
       </svg>
     ),
     description: "Devlogs & trailers",
-    members: "3,000+",
   },
   {
     name: "Instagram",
@@ -46,7 +43,6 @@ const socialLinks = [
       </svg>
     ),
     description: "Art & screenshots",
-    members: "2,000+",
   },
 ];
 
@@ -104,7 +100,6 @@ export default function CommunitySection() {
           <span className="section-label">Join Us</span>
           <h2>Be Part of the Journey</h2>
           <p>
-            Connect with over 10,000 followers across our community platforms.
             Get exclusive updates, behind-the-scenes content, and help shape the game!
           </p>
         </div>
@@ -121,7 +116,6 @@ export default function CommunitySection() {
               <div className="social-icon">{social.icon}</div>
               <h3>{social.name}</h3>
               <p>{social.description}</p>
-              <span className="social-members">{social.members} followers</span>
             </Link>
           ))}
         </div>
