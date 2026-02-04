@@ -23,7 +23,7 @@ const features = [
     icon: "📅",
     title: "Life Simulation Elements",
     description:
-      "Persona-inspired daily activities, jobs, and relationship-building that impact combat abilities, character growth, and story outcomes.",
+      "Modern JRPG-inspired slice of life, jobs, and relationship-building that impact combat abilities, character growth, and story outcomes.",
   },
   {
     icon: "⏳",

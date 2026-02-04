@@ -12,7 +12,9 @@
       "Bash(npm run dev:*)",
       "WebFetch(domain:www.expedition33.com)",
       "WebFetch(domain:www.eonsaway.com)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "WebFetch(domain:creators.expedition33.com)",
+      "Bash(npx next lint)"
     ]
   }
 }

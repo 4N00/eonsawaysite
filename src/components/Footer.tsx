@@ -3,12 +3,14 @@
 import Link from "next/link";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="site-footer">
       <div className="footer-content">
         <div className="footer-brand">
           <img src="/assets/img/EonsAwayLogo.png" alt="Eons Away" className="footer-logo" />
-          <p>A hand-drawn JRPG blending Final Fantasy-style storytelling with Persona-inspired combat.</p>
+          <p>A hand-drawn JRPG blending classic storytelling with modern combat mechanics.</p>
           <div className="footer-social">
             <Link href="https://twitter.com/eonsawaygame" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
               <svg viewBox="0 0 24 24" fill="currentColor">
@@ -59,7 +61,7 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <div className="footer-copyright">
-          <p>© 2025 Nightward Games. All Rights Reserved.</p>
+          <p>© {currentYear} Nightward Games. All Rights Reserved.</p>
           <p>Eons Away™ is a trademark of Nightward Games.</p>
         </div>
       </div>

@@ -2,10 +2,13 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +25,11 @@ export default function Navigation() {
     { href: "#gallery", label: "Gallery" },
     { href: "#community", label: "Community" },
   ];
+
+  // If not on homepage, prepend "/" to anchor links
+  const getHref = (anchor: string) => {
+    return isHomePage ? anchor : `/${anchor}`;
+  };
 
   return (
     <nav className={`navigation ${scrolled ? "scrolled" : ""}`}>
@@ -44,12 +52,18 @@ export default function Navigation() {
           {navLinks.map((link) => (
             <Link
               key={link.href}
-              href={link.href}
+              href={getHref(link.href)}
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
             </Link>
           ))}
+          <Link
+            href="/creators"
+            onClick={() => setMenuOpen(false)}
+          >
+            Creators
+          </Link>
           <Link
             href="https://store.steampowered.com/app/2164820/Eons_Away/"
             target="_blank"
