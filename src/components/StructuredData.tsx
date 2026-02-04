@@ -1,4 +1,8 @@
 export default function StructuredData() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.VERCEL_URL 
+    ? `https://${process.env.VERCEL_URL}` 
+    : "https://eonsaway.com";
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -58,8 +62,8 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Nightward Games",
-    url: "https://eonsaway.com",
-    logo: "https://eonsaway.com/logo.png",
+    url: siteUrl,
+    logo: `${siteUrl}/logo.png`,
     sameAs: [
       "https://twitter.com/NightwardGames",
       "https://discord.gg/nightwardgames",
@@ -90,15 +94,15 @@ export default function StructuredData() {
       "@type": "Organization",
       name: "Nightward Games",
     },
-    image: "https://eonsaway.com/og-image.jpg",
-    url: "https://eonsaway.com",
+    image: `${siteUrl}/og-image.jpg`,
+    url: siteUrl,
   };
 
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Eons Away",
-    url: "https://eonsaway.com",
+    url: siteUrl,
     description:
       "Official website for Eons Away, a hand-drawn JRPG by Nightward Games.",
     publisher: {

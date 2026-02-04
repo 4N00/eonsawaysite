@@ -6,7 +6,9 @@ import CookieConsentBanner from "@/components/CookieConsent";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import StructuredData from "@/components/StructuredData";
 
-const siteUrl = "https://eonsaway.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.VERCEL_URL 
+  ? `https://${process.env.VERCEL_URL}` 
+  : "https://eonsaway.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
