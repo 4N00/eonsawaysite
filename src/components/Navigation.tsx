@@ -56,6 +56,12 @@ export default function Navigation() {
             FAQ
           </Link>
           <Link
+            href="/presskit"
+            onClick={() => setMenuOpen(false)}
+          >
+            Press
+          </Link>
+          <Link
             href="/creators"
             onClick={() => setMenuOpen(false)}
           >

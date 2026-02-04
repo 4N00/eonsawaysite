@@ -53,7 +53,7 @@ export default function Footer() {
           <div className="footer-links-column">
             <h4>Support</h4>
             <Link href="/faq">FAQ</Link>
-            <Link href="mailto:anoo@nightwardgames.com">Contact</Link>
+            <Link href="/presskit">Press Kit</Link>
             <Link href="/creators">Creators</Link>
             <Link href="/privacy">Privacy Policy</Link>
           </div>

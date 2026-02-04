@@ -2418,3 +2418,498 @@ a.animated-button.thar-two:before {
     text-align: center;
   }
 }
+
+/* ===== PRESS KIT PAGE ===== */
+.presskit-page {
+  background: var(--bg-dark);
+  min-height: 100vh;
+}
+
+/* Press Kit Hero */
+.presskit-hero {
+  padding: 12rem 2rem 6rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.presskit-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.presskit-label {
+  display: inline-block;
+  font-family: "Cinzel", serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.presskit-hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.presskit-hero p {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.8;
+}
+
+.presskit-cta {
+  display: inline-block;
+  font-family: "Cinzel", serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 1rem 2.5rem;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.presskit-cta:hover {
+  background: var(--text-primary);
+  color: var(--bg-dark);
+}
+
+/* Press Kit Sections */
+.presskit-section {
+  padding: 6rem 2rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.presskit-section-dark {
+  background: var(--bg-darker);
+}
+
+.presskit-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.presskit-section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.presskit-section-header h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 400;
+}
+
+.presskit-section-desc {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: -1.5rem auto 3rem;
+  line-height: 1.8;
+}
+
+/* Fact Sheet Grid */
+.factsheet-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.factsheet-item {
+  padding: 1.5rem;
+  border: 1px solid var(--border-subtle);
+  text-align: center;
+}
+
+.factsheet-label {
+  display: block;
+  font-family: "Cinzel", serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.factsheet-value {
+  display: block;
+  font-size: 1rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* Overview Content */
+.overview-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.overview-content p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+}
+
+.overview-content p:last-child {
+  margin-bottom: 0;
+}
+
+.overview-content strong {
+  color: var(--text-primary);
+}
+
+/* Features Grid (Press Kit) */
+.presskit-section .features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.presskit-section .feature-card {
+  padding: 2rem;
+  border: 1px solid var(--border-subtle);
+  transition: border-color 0.3s ease;
+}
+
+.presskit-section .feature-card:hover {
+  border-color: var(--border-color);
+}
+
+.feature-number {
+  font-family: "Cinzel", serif;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+}
+
+.presskit-section .feature-card h3 {
+  font-family: "Cinzel", serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.presskit-section .feature-card p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Screenshots Grid */
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.screenshot-item {
+  aspect-ratio: 16/9;
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.screenshot-item:hover {
+  border-color: var(--border-color);
+}
+
+.screenshot-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-darker);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.screenshot-coming {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-top: 0.5rem;
+  opacity: 0.5;
+}
+
+.screenshots-cta {
+  text-align: center;
+}
+
+/* Influences Grid */
+.influences-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.influence-item {
+  padding: 1.5rem;
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.influence-game {
+  font-family: "Cinzel", serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+}
+
+.influence-aspect {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Branding Grid */
+.branding-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.branding-card {
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.branding-card:hover {
+  border-color: var(--border-color);
+}
+
+.branding-preview {
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-darker);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.branding-info {
+  padding: 1rem;
+  text-align: center;
+}
+
+.branding-info h4 {
+  font-family: "Cinzel", serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.branding-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.branding-cta {
+  text-align: center;
+}
+
+/* Developer Content */
+.developer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.developer-content p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+}
+
+.developer-content strong {
+  color: var(--text-primary);
+}
+
+.developer-stats {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.dev-stat {
+  text-align: center;
+}
+
+.dev-stat-value {
+  display: block;
+  font-family: "Cinzel", serif;
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.dev-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Contact Grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.contact-card {
+  padding: 2rem;
+  border: 1px solid var(--border-subtle);
+  text-align: center;
+}
+
+.contact-card h3 {
+  font-family: "Cinzel", serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  margin-bottom: 0.75rem;
+}
+
+.contact-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.contact-card > a {
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 2px;
+  transition: border-color 0.3s ease;
+}
+
+.contact-card > a:hover {
+  border-color: var(--text-primary);
+}
+
+.contact-social {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.contact-social a {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.contact-social a:hover {
+  color: var(--text-primary);
+}
+
+/* Press Kit Button */
+.presskit-btn {
+  display: inline-block;
+  font-family: "Cinzel", serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 1rem 2rem;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.presskit-btn:hover {
+  background: var(--text-primary);
+  color: var(--bg-dark);
+}
+
+/* Press Kit Responsive */
+@media (max-width: 1024px) {
+  .factsheet-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .presskit-section .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .branding-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .presskit-hero {
+    padding: 10rem 1.5rem 4rem;
+  }
+
+  .presskit-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .factsheet-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .presskit-section .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .screenshots-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .influences-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .branding-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .developer-stats {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .screenshots-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .branding-grid {
+    grid-template-columns: 1fr;
+  }
+}

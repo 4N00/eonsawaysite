@@ -18,7 +18,8 @@
       "Bash(node:*)",
       "Bash(nvm install:*)",
       "Bash(find:*)",
-      "Bash(npm run lint:*)"
+      "Bash(npm run lint:*)",
+      "WebFetch(domain:sabotagestudio.com)"
     ]
   }
 }
