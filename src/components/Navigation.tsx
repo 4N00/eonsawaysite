@@ -1,22 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 
 export default function Navigation() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const isHomePage = pathname === "/";
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const navLinks = [
     { href: "#story", label: "Story" },
@@ -32,7 +23,7 @@ export default function Navigation() {
   };
 
   return (
-    <nav className={`navigation ${scrolled ? "scrolled" : ""}`}>
+    <nav className="navigation">
       <div className="nav-container">
         <Link href="/" className="nav-logo">
           <img src="/assets/img/EonsAwayLogo.png" alt="Eons Away" />

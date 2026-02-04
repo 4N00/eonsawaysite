@@ -72,16 +72,14 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem 2rem 3rem;
   transition: all 0.3s ease;
+  background-image: url('/navbar-bg.png');
+  background-position: center top;
+  background-repeat: repeat-x;
+  background-size: auto 120%;
 }
 
-.navigation.scrolled {
-  background: rgba(10, 10, 10, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 1rem 2rem;
-  border-bottom: 1px solid var(--border-subtle);
-}
 
 .nav-container {
   max-width: 1400px;
@@ -302,19 +300,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .top-hero .top-hero-content img {
-  max-width: 100%;
+  max-width: 18rem;
 }
 
 @media (max-width: 1999px) {
   .top-hero .top-hero-content img {
-    max-width: 24rem;
+    max-width: 18rem;
   }
 }
 
 @media (max-width: 500px) {
   .top-hero .top-hero-content img {
     margin-top: 5rem;
-    max-width: 14rem;
+    max-width: 12rem;
   }
 }
 
