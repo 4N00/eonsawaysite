@@ -1,5 +1,8 @@
 "use client";
 
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+
 const features = [
   {
     title: "Strategic Turn-Based Combat",
@@ -33,28 +36,65 @@ const features = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
+};
+
 export default function FeaturesSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
+
   return (
-    <section className="features-section" id="features">
+    <section className="features-section" id="features" ref={ref}>
       <div className="features-container">
-        <div className="features-header">
+        <motion.div
+          className="features-header"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <span className="section-label">Core Features</span>
           <h2>What Makes Eons Away Unique</h2>
           <p>
             A blend of classic JRPG storytelling with innovative combat mechanics
             and meaningful player choice.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="features-grid">
+        <motion.div
+          className="features-grid"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {features.map((feature, index) => (
-            <div className="feature-card" key={index}>
+            <motion.div
+              className="feature-card"
+              key={index}
+              variants={cardVariants}
+              whileHover={{ y: -8, transition: { duration: 0.2 } }}
+            >
               <div className="feature-number">{String(index + 1).padStart(2, "0")}</div>
               <h3>{feature.title}</h3>
               <p>{feature.description}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

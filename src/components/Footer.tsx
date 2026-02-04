@@ -1,15 +1,31 @@
 "use client";
 
 import Link from "next/link";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <footer className="site-footer">
-      <div className="footer-content">
+    <footer className="site-footer" ref={ref}>
+      <motion.div
+        className="footer-content"
+        initial={{ opacity: 0, y: 30 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
         <div className="footer-brand">
-          <img src="/assets/img/EonsAwayLogo.png" alt="Eons Away" className="footer-logo" />
+          <motion.img
+            src="/assets/img/EonsAwayLogo.png"
+            alt="Eons Away"
+            className="footer-logo"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          />
           <p>A hand-drawn JRPG blending classic storytelling with modern combat mechanics.</p>
           <div className="footer-social">
             <Link href="https://twitter.com/eonsawaygame" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
@@ -58,14 +74,19 @@ export default function Footer() {
             <Link href="/privacy">Privacy Policy</Link>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="footer-bottom">
+      <motion.div
+        className="footer-bottom"
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
         <div className="footer-copyright">
           <p>© {currentYear} Nightward Games. All Rights Reserved.</p>
           <p>Eons Away™ is a trademark of Nightward Games.</p>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 }

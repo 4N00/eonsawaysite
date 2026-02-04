@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const socialLinks = [
   {
@@ -50,10 +51,33 @@ const socialLinks = [
 // Mailchimp > Audience > Signup forms > Embedded forms
 const MAILCHIMP_URL = process.env.NEXT_PUBLIC_MAILCHIMP_URL || "";
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
+};
+
 export default function CommunitySection() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -94,34 +118,56 @@ export default function CommunitySection() {
   };
 
   return (
-    <section className="community-section" id="community">
+    <section className="community-section" id="community" ref={ref}>
       <div className="community-container">
-        <div className="community-header">
+        <motion.div
+          className="community-header"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <span className="section-label">Join Us</span>
           <h2>Be Part of the Journey</h2>
           <p>
             Get exclusive updates, behind-the-scenes content, and help shape the game!
           </p>
-        </div>
+        </motion.div>
 
-        <div className="social-grid">
+        <motion.div
+          className="social-grid"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {socialLinks.map((social, index) => (
-            <Link
-              href={social.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-card"
-              key={index}
-            >
-              <div className="social-icon">{social.icon}</div>
-              <h3>{social.name}</h3>
-              <p>{social.description}</p>
-            </Link>
+            <motion.div key={index} variants={cardVariants}>
+              <Link
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-card"
+              >
+                <motion.div
+                  className="social-icon"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {social.icon}
+                </motion.div>
+                <h3>{social.name}</h3>
+                <p>{social.description}</p>
+              </Link>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Newsletter */}
-        <div className="newsletter-section">
+        <motion.div
+          className="newsletter-section"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
+        >
           <div className="newsletter-content">
             <h3>Stay Updated</h3>
             <p>
@@ -137,21 +183,38 @@ export default function CommunitySection() {
                 required
                 disabled={status === "loading"}
               />
-              <button type="submit" disabled={status === "loading"}>
+              <motion.button
+                type="submit"
+                disabled={status === "loading"}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
                 {status === "loading" ? "..." : "Subscribe"}
-              </button>
+              </motion.button>
             </form>
             {status === "success" && (
-              <p className="newsletter-message newsletter-success">{message}</p>
+              <motion.p
+                className="newsletter-message newsletter-success"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                {message}
+              </motion.p>
             )}
             {status === "error" && (
-              <p className="newsletter-message newsletter-error">{message}</p>
+              <motion.p
+                className="newsletter-message newsletter-error"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                {message}
+              </motion.p>
             )}
             <p className="newsletter-privacy">
               We respect your privacy. Unsubscribe at any time.
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
