@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useState, FormEvent } from "react";
 
 const socialLinks = [
   {
@@ -49,7 +50,53 @@ const socialLinks = [
   },
 ];
 
+// Replace this with your Mailchimp form action URL from:
+// Mailchimp > Audience > Signup forms > Embedded forms
+const MAILCHIMP_URL = process.env.NEXT_PUBLIC_MAILCHIMP_URL || "";
+
 export default function CommunitySection() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+
+    if (!MAILCHIMP_URL) {
+      // Fallback to mailto if Mailchimp URL not configured
+      window.location.href = `mailto:newsletter@eonsaway.com?subject=Newsletter Signup&body=Please add me to the Eons Away newsletter. My email: ${email}`;
+      return;
+    }
+
+    setStatus("loading");
+
+    try {
+      // Mailchimp requires posting to their URL
+      // Using a hidden iframe to handle the form submission
+      const form = document.createElement("form");
+      form.action = MAILCHIMP_URL;
+      form.method = "POST";
+      form.target = "_blank";
+
+      const emailInput = document.createElement("input");
+      emailInput.type = "email";
+      emailInput.name = "EMAIL";
+      emailInput.value = email;
+      form.appendChild(emailInput);
+
+      document.body.appendChild(form);
+      form.submit();
+      document.body.removeChild(form);
+
+      setStatus("success");
+      setMessage("Thanks for subscribing! Check your email to confirm.");
+      setEmail("");
+    } catch {
+      setStatus("error");
+      setMessage("Something went wrong. Please try again.");
+    }
+  };
+
   return (
     <section className="community-section" id="community">
       <div className="community-container">
@@ -87,10 +134,28 @@ export default function CommunitySection() {
               Subscribe to get exclusive news, development updates, and be the first
               to know when the demo drops!
             </p>
-            <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
-              <input type="email" placeholder="Enter your email" required />
-              <button type="submit">Subscribe</button>
+            <form className="newsletter-form" onSubmit={handleSubmit}>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                disabled={status === "loading"}
+              />
+              <button type="submit" disabled={status === "loading"}>
+                {status === "loading" ? "..." : "Subscribe"}
+              </button>
             </form>
+            {status === "success" && (
+              <p className="newsletter-message newsletter-success">{message}</p>
+            )}
+            {status === "error" && (
+              <p className="newsletter-message newsletter-error">{message}</p>
+            )}
+            <p className="newsletter-privacy">
+              We respect your privacy. Unsubscribe at any time.
+            </p>
           </div>
         </div>
       </div>

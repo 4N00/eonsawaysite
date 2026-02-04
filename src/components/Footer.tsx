@@ -51,9 +51,10 @@ export default function Footer() {
             <Link href="https://instagram.com/eonsawaygame" target="_blank">Instagram</Link>
           </div>
           <div className="footer-links-column">
-            <h4>Developer</h4>
+            <h4>Support</h4>
+            <Link href="/faq">FAQ</Link>
             <Link href="mailto:anoo@nightwardgames.com">Contact</Link>
-            <Link href="mailto:info@eonsaway.com">Press Kit</Link>
+            <Link href="/creators">Creators</Link>
             <Link href="/privacy">Privacy Policy</Link>
           </div>
         </div>

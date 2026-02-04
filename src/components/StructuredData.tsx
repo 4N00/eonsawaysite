@@ -1,4 +1,59 @@
 export default function StructuredData() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What is Eons Away?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Eons Away is a hand-drawn JRPG developed by Nightward Games. It blends classic storytelling with modern combat mechanics, featuring a vibrant handpainted world called Orya filled with mysteries, memorable characters, and an incredible story.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "When does Eons Away release?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "The release date for Eons Away is currently TBA (To Be Announced). Join our newsletter or follow us on social media to be the first to know when we announce the release date.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What platforms will Eons Away be available on?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Eons Away will initially launch on PC via Steam. Console versions are planned to follow after the PC release.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What type of game is Eons Away?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Eons Away is a turn-based JRPG with strategic combat, life simulation elements, and creature collection mechanics.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Is there multiplayer in Eons Away?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Eons Away is a single-player experience focused on delivering a rich, narrative-driven adventure.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How long is Eons Away?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "We're targeting 40+ hours of gameplay for a complete playthrough, with additional content for side quests, creature collection, and relationship building.",
+        },
+      },
+    ],
+  };
+
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -54,6 +109,12 @@ export default function StructuredData() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema),
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

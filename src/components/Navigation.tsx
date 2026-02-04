@@ -59,6 +59,12 @@ export default function Navigation() {
             </Link>
           ))}
           <Link
+            href="/faq"
+            onClick={() => setMenuOpen(false)}
+          >
+            FAQ
+          </Link>
+          <Link
             href="/creators"
             onClick={() => setMenuOpen(false)}
           >
