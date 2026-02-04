@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import CookieConsentBanner from "@/components/CookieConsent";
 
 export const metadata: Metadata = {
   title: "Eons Away - The Game",
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         {children}
+        <CookieConsentBanner />
       </body>
     </html>
   );

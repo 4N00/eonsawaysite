@@ -9,7 +9,10 @@
       "Bash(source ~/.nvm/nvm.sh)",
       "Bash(lsof:*)",
       "Bash(xargs:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "WebFetch(domain:www.expedition33.com)",
+      "WebFetch(domain:www.eonsaway.com)",
+      "Bash(npm install:*)"
     ]
   }
 }

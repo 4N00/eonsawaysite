@@ -1,14 +1,22 @@
+import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import SteamSection from "@/components/SteamSection";
+import StorySection from "@/components/StorySection";
+import FeaturesSection from "@/components/FeaturesSection";
+import WorldSection from "@/components/WorldSection";
+import GallerySection from "@/components/GallerySection";
+import CommunitySection from "@/components/CommunitySection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="bg-black">
+    <main>
+      <Navigation />
       <HeroSection />
-      <AboutSection />
-      <SteamSection />
+      <StorySection />
+      <FeaturesSection />
+      <WorldSection />
+      <GallerySection />
+      <CommunitySection />
       <Footer />
     </main>
   );
