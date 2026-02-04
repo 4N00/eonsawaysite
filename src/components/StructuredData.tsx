@@ -48,7 +48,7 @@ export default function StructuredData() {
         name: "How long is Eons Away?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "We're targeting 40+ hours of gameplay for a complete playthrough, with additional content for side quests, creature collection, and relationship building.",
+          text: "We're targeting 20+ hours of gameplay for a complete playthrough, with additional content for side quests, creature collection, and relationship building.",
         },
       },
     ],

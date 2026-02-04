@@ -33,7 +33,7 @@ const faqs = [
   {
     question: "How long is Eons Away?",
     answer:
-      "We're targeting 40+ hours of gameplay for a complete playthrough, with additional content for players who want to explore everything the world of Orya has to offer, including side quests, creature collection, and relationship building.",
+      "We're targeting 20+ hours of gameplay for a complete playthrough, with additional content for players who want to explore everything the world of Orya has to offer, including side quests, creature collection, and relationship building.",
   },
   {
     question: "What are the system requirements?",

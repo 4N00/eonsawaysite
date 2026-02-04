@@ -44,7 +44,7 @@ export default function CreatorsPage() {
                 </p>
                 <div className="creators-stats">
                   <div className="stat">
-                    <span className="stat-value">40+</span>
+                    <span className="stat-value">20+</span>
                     <span className="stat-label">Hours of Gameplay</span>
                   </div>
                   <div className="stat">
