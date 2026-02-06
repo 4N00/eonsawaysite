@@ -8,7 +8,9 @@ export default function StorySection() {
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
-    <section className="story-section" id="story" ref={ref}>
+    <>
+      <div className="edgeImageRotate" />
+      <section className="story-section" id="story" ref={ref}>
       <div className="story-container">
         <motion.div
           className="story-content"
@@ -62,5 +64,6 @@ export default function StorySection() {
         </motion.div>
       </div>
     </section>
+    </>
   );
 }

@@ -10,6 +10,8 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}` 
   : "https://eonsaway.com";
 
+const isVercelPreview = process.env.VERCEL_URL && !process.env.VERCEL_URL.includes('eonsaway.com');
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -33,7 +35,16 @@ export const metadata: Metadata = {
   authors: [{ name: "Nightward Games" }],
   creator: "Nightward Games",
   publisher: "Nightward Games",
-  robots: {
+  robots: isVercelPreview ? {
+    index: false,
+    follow: false,
+    noindex: true,
+    nofollow: true,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  } : {
     index: true,
     follow: true,
     googleBot: {

@@ -1,8 +1,0 @@
-# Robots.txt for Eons Away
-# https://eonsaway.com
-
-User-agent: *
-Allow: /
-
-# Sitemap
-Sitemap: https://eonsaway.com/sitemap.xml

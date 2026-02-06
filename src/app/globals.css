@@ -530,9 +530,11 @@ a.animated-button.thar-two:before {
 
 /* ===== STORY SECTION ===== */
 .story-section {
-  padding: 8rem 2rem;
+  padding: 4rem 2rem;
   background: var(--bg-dark);
   position: relative;
+  z-index: 100;
+  margin-top: -8rem;
 }
 
 .story-container {
@@ -3005,7 +3007,7 @@ a.animated-button.thar-two:before {
   background-position: center top;
   filter: brightness(0) invert(0) sepia() hue-rotate(100deg) saturate(0%);
   transform: scale(-1, -1);
-  position: absolute;
+  position: relative;
   z-index: 99;
   display: block;
 }
