@@ -38,8 +38,6 @@ export const metadata: Metadata = {
   robots: isVercelPreview ? {
     index: false,
     follow: false,
-    noindex: true,
-    nofollow: true,
     googleBot: {
       index: false,
       follow: false,
