@@ -2793,7 +2793,7 @@ a.animated-button.thar-two:before {
 /* Branding Grid */
 .branding-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-bottom: 2rem;
 }
@@ -2846,6 +2846,27 @@ a.animated-button.thar-two:before {
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.branding-download-btn {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: transparent;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 1px solid #fff;
+}
+
+.branding-download-btn:hover {
+  background: #fff;
+  color: #0a0a0a;
 }
 
 .branding-cta {
@@ -2983,7 +3004,7 @@ a.animated-button.thar-two:before {
   }
 
   .branding-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 

@@ -121,8 +121,28 @@ const screenshots = [
 const logoPreviewSrc = "/assets/img/EonsAwayLogo.png";
 
 const brandingAssets = [
-  { name: "Logo (Light)", format: "PNG", size: "2MB", previewSrc: logoPreviewSrc },
-  { name: "Key Art", format: "PNG", size: "5MB" },
+  { 
+    name: "Logo", 
+    format: "PNG", 
+    previewSrc: logoPreviewSrc,
+    downloadUrl: logoPreviewSrc,
+    alt: "Eons Away official game logo - turn-based JRPG" 
+  },
+  { 
+    name: "Poster", 
+    format: "PNG", 
+    previewSrc: "/assets/img/key-art-poster.png",
+    downloadUrl: "/assets/img/EONS AWAY POSTER.png",
+    alt: "Eons Away key art poster featuring Aris and his shadow brother in handpainted fantasy world" 
+  },
+  { 
+    name: "Wallpaper", 
+    format: "PNG",
+    resolution: "3840 x 2160",
+    previewSrc: "/assets/img/key-art-wallpaper.png",
+    downloadUrl: "/assets/img/EONS AWAY Wallpaper.png",
+    alt: "Eons Away wallpaper key art with protagonist and shadow brother over fantasy landscape" 
+  },
 ];
 
 export default function PressKitPage() {
@@ -335,7 +355,8 @@ export default function PressKitPage() {
                     {asset.previewSrc ? (
                       <img
                         src={asset.previewSrc}
-                        alt={asset.name}
+                        alt={asset.alt || asset.name}
+                        loading="lazy"
                         width={320}
                         height={180}
                       />
@@ -346,8 +367,16 @@ export default function PressKitPage() {
                   <div className="branding-info">
                     <h4>{asset.name}</h4>
                     <span className="branding-meta">
-                      {asset.format} / {asset.size}
+                      {asset.format}
+                      {asset.resolution && ` / ${asset.resolution}`}
                     </span>
+                    <a 
+                      href={asset.downloadUrl} 
+                      download 
+                      className="branding-download-btn"
+                    >
+                      Download
+                    </a>
                   </div>
                 </div>
               ))}
