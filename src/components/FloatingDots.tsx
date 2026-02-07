@@ -84,8 +84,8 @@ export default function FloatingDots() {
       timeouts.push(t);
     };
 
-    // ~1 dot per 150px of page height, max 50
-    const count = Math.min(Math.floor(pageHeight / 150), 50);
+    // ~1 dot per 70px of page height, max 100
+    const count = Math.min(Math.floor(pageHeight / 70), 100);
     for (let i = 0; i < count; i++) {
       const t = setTimeout(spawnDot, i * 200 + Math.random() * 300);
       timeouts.push(t);
