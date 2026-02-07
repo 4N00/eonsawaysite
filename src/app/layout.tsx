@@ -3,6 +3,8 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import CookieConsentBanner from "@/components/CookieConsent";
+import FallingLeaves from "@/components/FallingLeaves";
+import FloatingDots from "@/components/FloatingDots";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import StructuredData from "@/components/StructuredData";
 
@@ -102,7 +104,11 @@ export default function RootLayout({
         <StructuredData />
       </head>
       <body className="antialiased">
-        {children}
+        <div style={{ position: "relative" }}>
+          <FallingLeaves />
+          <FloatingDots />
+          {children}
+        </div>
         <CookieConsentBanner />
         <GoogleAnalytics />
         <Analytics />

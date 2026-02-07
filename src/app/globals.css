@@ -1289,9 +1289,11 @@ a.animated-button.thar-two:before {
 
 /* ===== FOOTER ===== */
 .site-footer {
+  position: relative;
   background: var(--bg-darker);
   padding: 4rem 2rem 2rem;
   border-top: 1px solid var(--border-subtle);
+  z-index: 4;
 }
 
 .footer-content {
@@ -1810,7 +1812,6 @@ a.animated-button.thar-two:before {
 /* ===== CREATORS PAGE ===== */
 .creators-page {
   background: var(--bg-dark);
-  min-height: 100vh;
 }
 
 /* Creators Hero */
@@ -3175,5 +3176,77 @@ a.animated-button.thar-two:before {
 
   .wishlist {
     max-width: 180px;
+  }
+}
+
+/* ── Falling Leaves ── */
+
+.falling-leaves-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  overflow: hidden;
+}
+
+.leaf-drift {
+  position: absolute;
+  left: -80px;
+  animation: leafDrift linear forwards;
+}
+
+.leaf-flutter {
+  animation: leafFlutter ease-in-out infinite alternate;
+}
+
+.leaf-spin {
+  animation: leafSpin linear infinite;
+}
+
+.leaf-spin img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@keyframes leafDrift {
+  from {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  to {
+    transform: translateX(calc(100vw + 160px));
+    opacity: 0;
+  }
+}
+
+@keyframes leafFlutter {
+  0% {
+    transform: translateY(calc(var(--flutter-amp, 50px) * -1));
+  }
+  100% {
+    transform: translateY(var(--flutter-amp, 50px));
+  }
+}
+
+@keyframes leafSpin {
+  from {
+    transform: rotate(0deg) rotateY(0deg);
+  }
+  to {
+    transform: rotate(360deg) rotateY(360deg);
+  }
+}
+
+/* Hide leaves on small screens for performance */
+@media (max-width: 640px) {
+  .falling-leaves-container {
+    display: none;
   }
 }
