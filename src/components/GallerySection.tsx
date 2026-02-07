@@ -4,8 +4,10 @@ import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 
 const galleryImages = [
-  { src: "/assets/img/bg1.png", alt: "Eons Away Gameplay" },
-  { src: "/assets/img/eonsAwayBg.png", alt: "The World of Orya" },
+  { src: "/assets/img/eons-away-combat-battle-gameplay.png", alt: "Eons Away turn-based combat with strategic battle system and corruption mechanics" },
+  { src: "/assets/img/eons-away-boss-fight-creature.png", alt: "Eons Away epic boss battle against corrupted creature in hand-drawn JRPG style" },
+  { src: "/assets/img/eons-away-town-village-npcs.png", alt: "Eons Away village exploration with NPCs and social bonding system" },
+  { src: "/assets/img/eons-away-dragon-boss-battle.png", alt: "Eons Away dragon boss encounter with turn-based combat and time manipulation" },
 ];
 
 const containerVariants = {
@@ -61,7 +63,13 @@ export default function GallerySection() {
               whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
               onClick={() => setActiveImage(index)}
             >
-              <img src={image.src} alt={image.alt} />
+              <img 
+                src={image.src} 
+                alt={image.alt}
+                loading={index < 2 ? "eager" : "lazy"}
+                width="1920"
+                height="1080"
+              />
               <div className="gallery-item-overlay">
                 <span>View</span>
               </div>

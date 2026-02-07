@@ -96,6 +96,16 @@ export default function StructuredData() {
     },
     image: `${siteUrl}/og-image.jpg`,
     url: siteUrl,
+    screenshot: [
+      `${siteUrl}/assets/img/eons-away-combat-battle-gameplay.png`,
+      `${siteUrl}/assets/img/eons-away-boss-fight-creature.png`,
+      `${siteUrl}/assets/img/eons-away-story-dialogue-character.png`,
+      `${siteUrl}/assets/img/eons-away-town-village-npcs.png`,
+      `${siteUrl}/assets/img/eons-away-platforming-exploration.png`,
+      `${siteUrl}/assets/img/eons-away-dragon-boss-battle.png`,
+      `${siteUrl}/assets/img/eons-away-corrupted-village-scene.png`,
+      `${siteUrl}/assets/img/eons-away-world-exploration-wasteland.png`,
+    ],
   };
 
   const websiteSchema = {

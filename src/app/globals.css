@@ -878,8 +878,8 @@ a.animated-button.thar-two:before {
 
 /* ===== GALLERY SECTION ===== */
 .gallery-section {
-  padding: 8rem 2rem;
-  background: var(--bg-darker);
+  padding: 8rem 2rem 0rem;
+  background: black;
 }
 
 .gallery-container {
@@ -1037,7 +1037,7 @@ a.animated-button.thar-two:before {
 
 /* ===== COMMUNITY SECTION ===== */
 .community-section {
-  padding: 8rem 2rem;
+  padding: 1rem 2rem;
   background: #000000;
 }
 
@@ -2976,12 +2976,14 @@ a.animated-button.thar-two:before {
 /* ===== STEAM WISHLIST SECTION (from old site) ===== */
 .section {
   margin: 0;
+  margin-top: -15rem;
   padding: 0;
   position: relative;
   overflow: hidden;
   width: 100%;
   background-color: #fff;
   display: block;
+  z-index: 1;
 }
 
 .edgeImage {
@@ -2992,10 +2994,11 @@ a.animated-button.thar-two:before {
   background-size: auto 100%;
   background-position: center bottom;
   filter: brightness(0) invert(0) sepia() hue-rotate(100deg) saturate(0%);
-  position: absolute;
-  z-index: 99;
+  position: relative;
+  z-index: 10;
   margin-top: -15rem;
   display: block;
+  pointer-events: none;
 }
 
 .edgeImageRotate {
@@ -3008,15 +3011,16 @@ a.animated-button.thar-two:before {
   filter: brightness(0) invert(0) sepia() hue-rotate(100deg) saturate(0%);
   transform: scale(-1, -1);
   position: relative;
-  z-index: 99;
+  z-index: 10;
   display: block;
+  pointer-events: none;
 }
 
 .imageWide {
-  margin-top: -3rem;
+  margin-top: 0;
   width: 100%;
   position: relative;
-  height: 55rem;
+  height: 40rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3034,7 +3038,7 @@ a.animated-button.thar-two:before {
 .imageWide__content {
   position: absolute;
   inset: 0;
-  z-index: 10;
+  z-index: 50;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3074,7 +3078,7 @@ a.animated-button.thar-two:before {
 
 @media (max-width: 768px) {
   .imageWide {
-    height: 45rem;
+    height: 32rem;
   }
 
   .imageWide__content h2 {
@@ -3088,7 +3092,7 @@ a.animated-button.thar-two:before {
 
 @media (max-width: 480px) {
   .imageWide {
-    height: 38rem;
+    height: 32rem;
   }
 
   .imageWide__content h2 {

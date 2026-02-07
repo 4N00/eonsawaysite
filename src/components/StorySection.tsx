@@ -58,7 +58,13 @@ export default function StorySection() {
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
         >
           <div className="story-image-wrapper">
-            <img src="/assets/img/eonsAwayBg.png" alt="The world of Orya" />
+            <img 
+              src="/assets/img/eons-away-world-exploration-wasteland.png" 
+              alt="Eons Away - Journey through the corrupted wasteland of Orya, a thousand years in the future"
+              loading="eager"
+              width="1920"
+              height="1080"
+            />
             <div className="story-image-overlay"></div>
           </div>
         </motion.div>

@@ -78,12 +78,42 @@ const influences = [
 ];
 
 const screenshots = [
-  { id: 1, alt: "Combat screenshot", placeholder: true },
-  { id: 2, alt: "World exploration", placeholder: true },
-  { id: 3, alt: "Story moment", placeholder: true },
-  { id: 4, alt: "Character art", placeholder: true },
-  { id: 5, alt: "Environment art", placeholder: true },
-  { id: 6, alt: "Gameplay screenshot", placeholder: true },
+  { 
+    id: 1, 
+    src: "/assets/img/eons-away-combat-battle-gameplay.png",
+    alt: "Eons Away strategic turn-based combat with corruption mechanics and time manipulation",
+    title: "Strategic Combat"
+  },
+  { 
+    id: 2, 
+    src: "/assets/img/eons-away-boss-fight-creature.png",
+    alt: "Eons Away boss battle featuring corrupted creature and Soulpact system",
+    title: "Boss Encounter"
+  },
+  { 
+    id: 3, 
+    src: "/assets/img/eons-away-story-dialogue-character.png",
+    alt: "Eons Away narrative storytelling with hand-drawn character dialogue",
+    title: "Story Moment"
+  },
+  { 
+    id: 4, 
+    src: "/assets/img/eons-away-town-village-npcs.png",
+    alt: "Eons Away village exploration with NPCs and relationship building",
+    title: "Village Life"
+  },
+  { 
+    id: 5, 
+    src: "/assets/img/eons-away-dragon-boss-battle.png",
+    alt: "Eons Away dragon boss fight showcasing turn-based JRPG combat",
+    title: "Dragon Boss"
+  },
+  { 
+    id: 6, 
+    src: "/assets/img/eons-away-world-exploration-wasteland.png",
+    alt: "Eons Away wasteland exploration in handpainted world of Orya",
+    title: "World Exploration"
+  },
 ];
 
 const brandingAssets = [
@@ -197,10 +227,14 @@ export default function PressKitPage() {
             <div className="screenshots-grid">
               {screenshots.map((screenshot) => (
                 <div className="screenshot-item" key={screenshot.id}>
-                  <div className="screenshot-placeholder">
-                    <span>Screenshot {screenshot.id}</span>
-                    <span className="screenshot-coming">Coming Soon</span>
-                  </div>
+                  <img 
+                    src={screenshot.src} 
+                    alt={screenshot.alt}
+                    loading="lazy"
+                    width="1920"
+                    height="1080"
+                  />
+                  <div className="screenshot-title">{screenshot.title}</div>
                 </div>
               ))}
             </div>
