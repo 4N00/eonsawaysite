@@ -101,7 +101,7 @@ export default function FAQPage() {
                 <Link href="mailto:anoo@nightwardgames.com" className="faq-btn faq-btn-primary">
                   Contact Us
                 </Link>
-                <Link href="https://discord.gg/4Z8QZ9Z" target="_blank" rel="noopener noreferrer" className="faq-btn faq-btn-secondary">
+                <Link href="https://discord.gg/CesHW7HYw2" target="_blank" rel="noopener noreferrer" className="faq-btn faq-btn-secondary">
                   Join Discord
                 </Link>
               </div>

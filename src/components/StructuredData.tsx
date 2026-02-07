@@ -65,13 +65,13 @@ export default function StructuredData() {
     url: siteUrl,
     logo: `${siteUrl}/assets/img/EonsAwayLogo.png`,
     sameAs: [
-      "https://twitter.com/NightwardGames",
-      "https://discord.gg/nightwardgames",
-      "https://www.youtube.com/@NightwardGames",
+      "https://x.com/EonsAwayGame",
+      "https://discord.gg/CesHW7HYw2",
+      "https://www.youtube.com/@eonsaway",
     ],
     contactPoint: {
       "@type": "ContactPoint",
-      email: "anoo@nightwardgames.com",
+      email: "info@nightwardgames.com",
       contactType: "customer support",
     },
   };

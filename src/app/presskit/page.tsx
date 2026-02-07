@@ -459,14 +459,14 @@ export default function PressKitPage() {
                     Twitter
                   </Link>
                   <Link
-                    href="https://discord.gg/4Z8QZ9Z"
+                    href="https://discord.gg/CesHW7HYw2"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Discord
                   </Link>
                   <Link
-                    href="https://youtube.com/@eonsawaygame"
+                    href="https://www.youtube.com/@eonsaway"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
