@@ -63,7 +63,7 @@ export default function StructuredData() {
     "@type": "Organization",
     name: "Nightward Games",
     url: siteUrl,
-    logo: `${siteUrl}/logo.png`,
+    logo: `${siteUrl}/assets/img/EonsAwayLogo.png`,
     sameAs: [
       "https://twitter.com/NightwardGames",
       "https://discord.gg/nightwardgames",
