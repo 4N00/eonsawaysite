@@ -15,11 +15,11 @@ const isVercelPreview = process.env.VERCEL_URL && !process.env.VERCEL_URL.includ
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Eons Away - Hand-Drawn JRPG by Nightward Games",
+    default: "Eons Away",
     template: "%s | Eons Away",
   },
   description:
-    "Eons Away is a hand-drawn JRPG blending classic storytelling with modern combat mechanics. Explore Orya, a vibrant handpainted world full of mysteries and an incredible story.",
+    "Eons Away is a hand-drawn JRPG blending classic storytelling with modern combat mechanics. Explore a vibrant handpainted world full of mysteries and an incredible story.",
   keywords: [
     "Eons Away",
     "JRPG",
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
     "Steam",
     "PC game",
   ],
-  authors: [{ name: "Nightward Games" }],
-  creator: "Nightward Games",
+  authors: [{ name: "Anouar Driouech" }],
+  creator: "Anouar Driouech",
   publisher: "Nightward Games",
   robots: isVercelPreview ? {
     index: false,
@@ -58,9 +58,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Eons Away",
-    title: "Eons Away - Hand-Drawn JRPG by Nightward Games",
+    title: "Eons Away",
     description:
-      "A hand-drawn JRPG blending classic storytelling with modern combat mechanics. Explore Orya, a vibrant handpainted world.",
+      "A hand-drawn JRPG blending classic storytelling with modern combat mechanics. Explore a vibrant handpainted world.",
     images: [
       {
         url: "/og-image.jpg",
