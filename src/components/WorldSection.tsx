@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
 
 export default function WorldSection() {
@@ -9,6 +10,16 @@ export default function WorldSection() {
 
   return (
     <section className="world-section" id="world" ref={ref}>
+      <div className="world-section-bg" aria-hidden>
+        <Image
+          src="/assets/img/eons-away-world-exploration-wasteland.png"
+          alt=""
+          fill
+          className="world-section-bg-img"
+          sizes="100vw"
+          priority={false}
+        />
+      </div>
       <div className="world-container">
         <motion.div
           className="world-header"

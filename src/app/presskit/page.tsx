@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
@@ -116,14 +118,16 @@ const screenshots = [
   },
 ];
 
+const logoPreviewSrc = "/assets/img/EonsAwayLogo.png";
+
 const brandingAssets = [
-  { name: "Logo (Light)", format: "PNG", size: "2MB" },
-  { name: "Logo (Dark)", format: "PNG", size: "2MB" },
-  { name: "Logo (SVG)", format: "SVG", size: "50KB" },
+  { name: "Logo (Light)", format: "PNG", size: "2MB", previewSrc: logoPreviewSrc },
   { name: "Key Art", format: "PNG", size: "5MB" },
 ];
 
 export default function PressKitPage() {
+  const [activeScreenshot, setActiveScreenshot] = useState<number | null>(null);
+
   return (
     <main>
       <Navigation />
@@ -225,19 +229,65 @@ export default function PressKitPage() {
               for additional assets.
             </p>
             <div className="screenshots-grid">
-              {screenshots.map((screenshot) => (
-                <div className="screenshot-item" key={screenshot.id}>
-                  <img 
-                    src={screenshot.src} 
-                    alt={screenshot.alt}
-                    loading="lazy"
-                    width="1920"
-                    height="1080"
-                  />
+              {screenshots.map((screenshot, index) => (
+                <div
+                  className="screenshot-item"
+                  key={screenshot.id}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setActiveScreenshot(index)}
+                  onKeyDown={(e) => e.key === "Enter" && setActiveScreenshot(index)}
+                >
+                  <div className="screenshot-item-img-wrap">
+                    <img
+                      src={screenshot.src}
+                      alt={screenshot.alt}
+                      loading="lazy"
+                      width="1920"
+                      height="1080"
+                    />
+                    <div className="gallery-item-overlay">
+                      <span>View</span>
+                    </div>
+                  </div>
                   <div className="screenshot-title">{screenshot.title}</div>
                 </div>
               ))}
             </div>
+            <AnimatePresence>
+              {activeScreenshot !== null && (
+                <motion.div
+                  className="lightbox"
+                  onClick={() => setActiveScreenshot(null)}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <motion.div
+                    className="lightbox-content"
+                    onClick={(e) => e.stopPropagation()}
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.9, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <img
+                      src={screenshots[activeScreenshot].src}
+                      alt={screenshots[activeScreenshot].alt}
+                    />
+                    <button
+                      type="button"
+                      className="lightbox-close"
+                      onClick={() => setActiveScreenshot(null)}
+                      aria-label="Close"
+                    >
+                      ✕
+                    </button>
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
             <div className="screenshots-cta">
               <Link href="mailto:press@eonsaway.com" className="presskit-btn">
                 Request High-Res Screenshots
@@ -282,7 +332,16 @@ export default function PressKitPage() {
               {brandingAssets.map((asset, index) => (
                 <div className="branding-card" key={index}>
                   <div className="branding-preview">
-                    <span>Preview</span>
+                    {asset.previewSrc ? (
+                      <img
+                        src={asset.previewSrc}
+                        alt={asset.name}
+                        width={320}
+                        height={180}
+                      />
+                    ) : (
+                      <span>Preview</span>
+                    )}
                   </div>
                   <div className="branding-info">
                     <h4>{asset.name}</h4>
